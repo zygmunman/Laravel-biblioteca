@@ -1,0 +1,1 @@
+ <a href="{{route('permiso')}}"><h3> Ir a permisos</h3></a>

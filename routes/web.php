@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('/admin/sistema/permisos', 'PermisoController@index')->name('permiso');
+
+Route::get('permiso/{nombre}', function($nombre){
+    return $nombre;
+})->where('nombre', '[A-za-z]+')
+  ->name('permiso');
+
