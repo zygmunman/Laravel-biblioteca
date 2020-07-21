@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-//Route::get('/admin/sistema/permisos', 'PermisoController@index')->name('permiso');
+Route::get('/', 'InicioController@index');
 
-Route::get('permiso/{nombre}', function($nombre){
-    return $nombre;
-})->where('nombre', '[A-za-z]+')
-  ->name('permiso');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+
+    Route::get('permiso', 'PermisoController@index')->name('permiso');
+    Route::get('permiso/crear', 'PermisoController@crear')->name('crear_permiso');
+    
+});
+
 
