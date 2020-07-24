@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Permisos</h3>
+                <class="box-title"><h3>Permisos</h3>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-bordered table-hover table-striped">
@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         @foreach ($permisos as $permiso)
                         <tr>
                             <td>{{$permiso->id}}</td>
@@ -38,5 +38,3 @@
     </div>
 </div>
 @stop
-
-

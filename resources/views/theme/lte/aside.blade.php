@@ -7,8 +7,8 @@
           <img src="{{asset("assets/$theme/dist/img/descarga.png")}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><h4>Barra de menús</h4></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>Barra de menús</p>
+          <!--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
         </div>
       </div>
       <!-- search form -->
