@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
-use App\Models\Admin\Menu;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ValidacionMenu;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use App\Models\Admin\Menu;
+use App\Http\Requests\ValidacionMenu;
 class MenuController extends Controller
 {
     /**
@@ -17,6 +14,8 @@ class MenuController extends Controller
     public function index()
     {
         //
+        $menus = Menu::getMenu();
+        return view('admin.menu.index', compact('menus'));
     }
 
     /**
@@ -28,7 +27,6 @@ class MenuController extends Controller
     {
         return view('admin.menu.crear');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -38,9 +36,8 @@ class MenuController extends Controller
     public function guardar(ValidacionMenu $request)
     {
         Menu::create($request->all());
-        return redirect('admin/menu/crear')->with('mensaje' ,'Menú creado con éxito');
+        return redirect('admin/menu/crear')->with('mensaje', 'Menú creado con exito');
     }
-
     /**
      * Display the specified resource.
      *
@@ -51,7 +48,6 @@ class MenuController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -62,7 +58,6 @@ class MenuController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -72,9 +67,8 @@ class MenuController extends Controller
      */
     public function actualizar(Request $request, $id)
     {
-        return redirect('admin/menu')->with('mensaje', 'Menú actualizado con éxito');
+        return redirect('admin/menu')->with('mensaje', 'Menú actualizado con exito');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -84,5 +78,16 @@ class MenuController extends Controller
     public function eliminar($id)
     {
         //
+    }
+
+    public function guardarOrden(Request $request)
+    {
+        if ($request->ajax()) {
+            $menu = new Menu;
+            $menu->guardarOrden($request->menu);
+            return response()->json(['respuesta' => 'ok']);
+        } else {
+            abort(404);
+        }
     }
 }
