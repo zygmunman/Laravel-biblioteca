@@ -13,15 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'InicioController@index');
+Route::get('/', 'InicioController@index')->name('inicio');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+//RUTAS DE LOGIN
+Route::get('seguridad/login', 'Seguridad\LoginController@index')->name('login');
+Route::post('seguridad/login', 'Seguridad\LoginController@login')->name('login_post');
+Route::get('seguridad/logout', 'Seguridad\LoginController@logout')->name('logout');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' =>['auth', 'superadmin']], function() {
+    Route::get('', 'AdminController@index');
 
     //RUTAS DE PERMISO
     Route::get('permiso', 'PermisoController@index')->name('permiso');
     Route::get('permiso/crear', 'PermisoController@crear')->name('crear_permiso');
 
-    //RUTAS DEL MENU
+    //RUTAS DE MENU
     Route::get('menu', 'MenuController@index')->name('menu');
     Route::get('menu/crear', 'MenuController@crear')->name('crear_menu');
     Route::post('menu', 'MenuController@guardar')->name('guardar_menu');
@@ -37,8 +43,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 
     //RUTAS DE MENU-ROL
     Route::get('menu-rol', 'MenuRolController@index')->name('menu-rol');
-    Route::post('menu-rol', 'MenuRolController@guardar')->name('guardar_menu_rol');   
-
-    
+    Route::post('menu-rol', 'MenuRolController@guardar')->name('guardar_menu_rol');      
 
 });
