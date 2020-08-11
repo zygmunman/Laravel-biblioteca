@@ -25,7 +25,7 @@ class UsuarioAdministradorSeeder extends Seeder
         
         DB::table('usuario')->insert([
             'usuario' => 'rat',
-            'nombre' => 'Roosvelt',
+            'nombre' => 'Jesús',
             'password' => bcrypt('pass123')
         ]);
             
