@@ -13,7 +13,7 @@ class UsuarioController extends Controller
   
     public function index()
     {
-        $datas = Usuario::orderBy('id')->get();
+        $datas = Usuario::with('roles:id,nombre')->orderBy('id')->get();
         return view('admin.usuario.index', compact('datas'));
     }
 
@@ -22,7 +22,6 @@ class UsuarioController extends Controller
         $rols = Rol::orderBy('id')->pluck('nombre', 'id')->toArray();
         return view('admin.usuario.crear', compact('rols'));
     }
-
 
     public function guardar(ValidacionUsuario $request)
     {
@@ -40,12 +39,22 @@ class UsuarioController extends Controller
 
     public function actualizar(Request $request, $id)
     {
-        Usuario::findOrFail($id)->update(array_filter($request->all()));
+        $usuario = Usuario::findOrFail($id);
+        $usuario->update(array_filter($request->all()));
+        $usuario->roles()->sync($request->rol_id);
         return redirect('admin/usuario')->with('mensaje', 'Usuario actualizado con éxito');
     }
 
-    public function eliminar($id)
+    public function eliminar(Request $request, $id)
     {
-        //
+        if($request->ajax()){
+            $usuario = Usuario::findOrFail($id);
+            $usuario->roles()->detach();
+            $usuario->delete();
+            return response()->json(['mensaje' => 'ok']);
+
+        }else{
+            abort(400);
+        }
     }
 }
