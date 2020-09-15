@@ -2,8 +2,10 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Admin\Rol;
 
 class RolSeeder extends Seeder
+
 {
     /**
      * Run the database seeds.
@@ -22,7 +24,7 @@ class RolSeeder extends Seeder
         foreach($rols as $key=>$value)
         {
 
-            DB::table('rol')->insert([
+            Rol::create([
 
                 'nombre'=>$value
             ]);
