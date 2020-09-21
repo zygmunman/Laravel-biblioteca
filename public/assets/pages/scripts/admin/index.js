@@ -3,7 +3,7 @@ $(document).ready(function () {
         event.preventDefault();
         const form = $(this);
         swal({
-            title: '¿ Está seguro que desea eliminar el registro ?',
+            title: '¿Está seguro que desea eliminar el registro?',
             text: "Esta acción no se puede deshacer!",
             icon: 'warning',
             buttons: {

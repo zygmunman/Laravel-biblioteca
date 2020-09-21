@@ -37,7 +37,7 @@ class PermisoController extends Controller
     {
         //
         Permiso::create($request->all());
-        return redirect('admin/permiso/crear')->with('mensaje', 'Permiso creado con exito');
+        return redirect('admin/permiso/crear')->with('mensaje', 'Permiso creado con éxito');
     }
 
     /**
@@ -75,7 +75,7 @@ class PermisoController extends Controller
     {
         //
         Permiso::findOrFail($id)->update($request->all());
-        return redirect('admin/permiso')->with('mensaje', 'Permiso actualizado con exito');
+        return redirect('admin/permiso')->with('mensaje', 'Permiso actualizado con éxito');
     }
 
     /**

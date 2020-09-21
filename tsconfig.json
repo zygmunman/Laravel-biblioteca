@@ -67,12 +67,7 @@
     "forceConsistentCasingInFileNames": true 
 	/* Disallow inconsistently-cased references to the same file. */
   
-	"compilerOptions": 
-    "target": "es5",
-    "outDir": "dist",
-    "rootDir": "src"
+
   }
   
- 
-	
 }
