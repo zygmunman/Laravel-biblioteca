@@ -62,7 +62,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' =>['auth
     Route::get('menu-rol', 'MenuRolController@index')->name('menu-rol');
     Route::post('menu-rol', 'MenuRolController@guardar')->name('guardar_menu_rol'); 
     
-    /*RUTAS PERMISO_ROL*/
+    /*RUTAS PERMISO-ROL*/
     Route::get('permiso-rol', 'PermisoRolController@index')->name('permiso_rol');
     Route::post('permiso-rol', 'PermisoRolController@guardar')->name('guardar_permiso_rol');
 

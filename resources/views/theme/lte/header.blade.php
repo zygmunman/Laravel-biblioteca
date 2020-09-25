@@ -99,14 +99,14 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <!--<img src="{{asset("assets/$theme/dist/img/user2-160x160.jpg")}}" class="user-image" alt="User Image">-->
+            <!--<img src="{{asset("assets/$theme/dist/img/biblioteca.jpg")}}" class="user-image" alt="Biblioteca">-->
             <span class="hidden-xs"></span>
-            <span class="hidden-xs">Hola, {{session()->get('nombre_usuario') ?? 'Invitado'}}</span>
+            <span class="hidden-xs">{{session()->get('nombre_usuario') ?? 'Invitado'}}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="{{asset("assets/$theme/dist/img/user2-160x160.jpg")}}" class="img-circle" alt="User Image">
+            <img src="{{asset("assets/$theme/dist/img/inicio_sesion.jpg")}}" class="img-circle" alt="Biblioteca">
               <p>
                
               </p>

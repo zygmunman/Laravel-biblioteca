@@ -2,22 +2,13 @@
 
 namespace App\Providers;
 
-use App\Models\Admin\Menu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use App\Models\Admin\Menu;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
+   
     /**
      * Bootstrap any application services.
      *
@@ -31,5 +22,15 @@ class AppServiceProvider extends ServiceProvider
         });
         View::share('theme', 'lte');
         
+    }
+
+     /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
     }
 }
