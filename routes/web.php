@@ -76,3 +76,6 @@ Route::post('libro/{libro}', 'LibroController@ver')->name('ver_libro');
 Route::get('libro/{id}/editar', 'LibroController@editar')->name('editar_libro');
 Route::put('libro/{id}', 'LibroController@actualizar')->name('actualizar_libro');
 Route::delete('libro/{id}', 'LibroController@eliminar')->name('eliminar_libro');
+
+//RUTAS DE LIBRO-PRESTAMO
+Route::get('libro-prestamo', 'LibroPrestamoController@index')->name('libro.prestamo');

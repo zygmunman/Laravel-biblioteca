@@ -1,10 +1,14 @@
+@php
+    use Carbon\Carbon;
+@endphp
+
 <header class="main-header">
   <!-- Logo -->
   <a href="/" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>A</b>LT</span>
+    <span class="logo-mini"><b>B</b>TC</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg">Biblioteca</span>
+    <span class="logo-lg"><b>Biblioteca</b></span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
@@ -108,7 +112,10 @@
             <li class="user-header">
             <img src="{{asset("assets/$theme/dist/img/inicio_sesion.jpg")}}" class="img-circle" alt="Biblioteca">
               <p>
-               
+                {{session()->get('nombre_usuario', 'Invitado')}} - {{session()->get('rol_nombre', 'Guest')}}
+                @auth
+                    <small>Registrado desde {{Carbon::parse(auth()->user()->created_at)->year }}</small>
+                @endauth
               </p>
             </li>
             <!-- Menu Body -->
@@ -134,9 +141,7 @@
           </ul>
         </li>
         <!-- Control Sidebar Toggle Button -->
-        <li>
-          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-        </li>
+      
       </ul>
     </div>
   </nav>

@@ -6,6 +6,11 @@
       <div class="pull-left image">
       <img src="{{asset("assets/$theme/dist/img/biblio.jpg")}}" class="img-circle" alt="User Image">
       </div>
+      
+      <div class="pull-center info">
+        <p>{{session()->get('nombre_usuario', 'Invitado')}}</p>
+      </div>
+      
     </div>
     <!-- search form -->
     <form action="#" method="get" class="sidebar-form">
@@ -21,7 +26,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
     
-      <li class="header">Menú Principal</li>
+      <li class="header"><h4><b>Menú Principal</b></h4></li>
         @foreach ($menusComposer as $key => $item)
             @if ($item["menu_id"] != 0)
                 @break
