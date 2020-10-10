@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\admin;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Permiso;
@@ -14,9 +15,10 @@ class PermisoController extends Controller
      */
     public function index()
     {
-        $permisos = Permiso::orderBy('id')->get();
-        return view('admin.permiso.index', compact('permisos'));
+        $datas = Permiso::orderBy('id')->get();
+        return view('admin.permiso.index', compact('datas'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,14 +34,11 @@ class PermisoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function guardar(ValidarPermiso $request)
     {
-        //
         Permiso::create($request->all());
-        return redirect('admin/permiso/crear')->with('mensaje', 'Permiso creado con éxito');
+        return redirect('admin/permiso/crear')->with('mensaje', 'Permiso creado con exito');
     }
-
     /**
      * Display the specified resource.
      *
@@ -58,11 +57,9 @@ class PermisoController extends Controller
      */
     public function editar($id)
     {
-        
         $data = Permiso::findOrFail($id);
         return view('admin.permiso.editar', compact('data'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,24 +67,19 @@ class PermisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function actualizar(ValidarPermiso $request, $id)
     {
-        //
         Permiso::findOrFail($id)->update($request->all());
-        return redirect('admin/permiso')->with('mensaje', 'Permiso actualizado con éxito');
+        return redirect('admin/permiso')->with('mensaje', 'Permiso actualizado con exito');
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function eliminar(Request $request, $id)
     {
-        
         if ($request->ajax()) {
             if (Permiso::destroy($id)) {
                 return response()->json(['mensaje' => 'ok']);

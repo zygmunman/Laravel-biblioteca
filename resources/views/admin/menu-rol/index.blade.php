@@ -2,20 +2,18 @@
 @section("titulo")
 Menú - Rol
 @endsection
-
 @section("scripts")
 <script src="{{asset("assets/pages/scripts/admin/menu-rol/index.js")}}" type="text/javascript"></script>
 @endsection
-
 @section('contenido')
 <div class="row">
     <div class="col-lg-12">
         @include('includes.mensaje')
-        <div class="box box-success">
-            <div class="box-header with-border">
-                <h3 class="box-title">Menús - Rol</h3>
+        <div class="card card-success">
+            <div class="card-header">
+                <h3 class="card-title">Menús - Rol</h3>
             </div>
-            <div class="box-body">
+            <div class="card-body table-responsive p-0">
                 @csrf
                 <table class="table table-striped table-bordered table-hover" id="tabla-data">
                     <thead>
@@ -46,7 +44,7 @@ Menú - Rol
                             </tr>
                             @foreach($menu["submenu"] as $key => $hijo)
                                 <tr>
-                                    <td class="pl-20"><i class="fa fa-arrow-right"></i> {{ $hijo["nombre"] }}</td>
+                                    <td class="pl-40"><i class="fa fa-arrow-right"></i> {{ $hijo["nombre"] }}</td>
                                     @foreach($rols as $id => $nombre)
                                         <td class="text-center">
                                             <input
@@ -95,6 +93,6 @@ Menú - Rol
             </div>
         </div>
     </div>
-</div> 
+</div>
 @endsection
                         

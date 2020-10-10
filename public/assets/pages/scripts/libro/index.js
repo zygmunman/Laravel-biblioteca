@@ -40,7 +40,7 @@ $(document).ready(function () {
                         Biblioteca.notificaciones('El registro no pudo ser eliminado, hay recursos usandolo', 'Biblioteca', 'error');
                     }
                 } else if (funcion == 'verLibro') {
-                    $('#modal-ver-libro .modal-body').html(respuesta)
+                    $('#modal-ver-libro.modal-body').html(respuesta)
                     $('#modal-ver-libro').modal('show');
                 }
             },

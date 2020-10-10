@@ -40,7 +40,7 @@ class LibroController extends Controller
      */
     public function guardar(ValidacionLibro $request)
     {
-         
+        
         if ($foto = Libro::setCaratula($request->foto_up))
         $request->request->add(['foto' => $foto]);
         Libro::create($request->all());
@@ -55,6 +55,7 @@ class LibroController extends Controller
      */
     public function ver(Request $request, Libro $libro)
     {
+    
         if ($request->ajax()) {
             return view('libro.ver', compact('libro'));
         } else {

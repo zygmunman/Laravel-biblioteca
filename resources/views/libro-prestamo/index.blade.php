@@ -2,26 +2,24 @@
 @section('titulo')
 Libros Prestados
 @endsection
-
 @section("scripts")
 <script src="{{asset("assets/pages/scripts/libro-prestamo/index.js")}}" type="text/javascript"></script>
 @endsection
-
 @section('contenido')
 <div class="row">
     <div class="col-lg-12">
         @csrf
         @include('includes.mensaje')
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title">Libros prestados</h3>
-                <div class="box-tools pull-right">
-                    <a href="{{route('libro-prestamo.crear')}}" class="btn btn-block btn-success btn-sm">
+        <div class="card card-info">
+            <div class="card-header">
+                <h3 class="card-title">Libros prestados</h3>
+                <div class="card-tools">
+                    <a href="{{route('libro-prestamo.crear')}}" class="btn btn-outline-secondary btn-sm">
                         <i class="fa fa-fw fa-plus-circle"></i> Prestar nuevo libro
                     </a>
                 </div>
             </div>
-            <div class="box-body">
+            <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-bordered table-hover" id="tabla-data">
                     <thead>
                         <tr>
@@ -29,9 +27,9 @@ Libros Prestados
                             <th>Título</th>
                             <th>Prestado por</th>
                             <th>Prestado a</th>
-                            <th>Fecha préstamo</th>
+                            <th>Fecha prestamo</th>
                             <th>Fecha devolución</th>
-                            <th class="width70"></th>
+                            <th class="width80"></th>
                         </tr>
                     </thead>
                     <tbody>

@@ -1,6 +1,6 @@
 <?php
+
 use App\Models\Admin\Permiso;
-use Illuminate\Database\Eloquent\Builder;
 
 if (!function_exists('getMenuActivo')) {
     function getMenuActivo($ruta)
@@ -12,8 +12,6 @@ if (!function_exists('getMenuActivo')) {
         }
     }
 }
-
-
 if (!function_exists('canUser')) {
     function can($permiso, $redirect = true)
     {
